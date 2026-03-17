@@ -1,0 +1,7 @@
+input,output
+/home/taergon/AiImageReckoProject/Data/Images/pic7.jpg,/home/taergon/AiImageReckoProject/Data/Labels/yolo_labels/obj_Train_data/Training/pic7.txt
+/home/taergon/AiImageReckoProject/Data/Images/pic1.jpg,/home/taergon/AiImageReckoProject/Data/Labels/yolo_labels/obj_Train_data/Training/pic1.txt
+/home/taergon/AiImageReckoProject/Data/Images/pic4.jpg,/home/taergon/AiImageReckoProject/Data/Labels/yolo_labels/obj_Train_data/Training/pic4.txt
+/home/taergon/AiImageReckoProject/Data/Images/pic18.jpg,/home/taergon/AiImageReckoProject/Data/Labels/yolo_labels/obj_Train_data/Training/pic18.txt
+/home/taergon/AiImageReckoProject/Data/Images/pic16.jpg,/home/taergon/AiImageReckoProject/Data/Labels/yolo_labels/obj_Train_data/Training/pic16.txt
+/home/taergon/AiImageReckoProject/Data/Images/pic14.jpg,/home/taergon/AiImageReckoProject/Data/Labels/yolo_labels/obj_Train_data/Training/pic14.txt
