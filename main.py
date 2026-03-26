@@ -27,21 +27,28 @@ def main():
         train_dataset,
         batch_size=args.batch_size,
         shuffle=True,
-        collate_fn=collect
+        collate_fn=collect,
+        num_workers=0,
+        pin_memory=torch.cuda.is_available()
     )
 
     val_loader = DataLoader(
         val_dataset,
         batch_size=args.batch_size,
         shuffle=False,
-        collate_fn=collect
+        collate_fn=collect,
+        num_workers=0,
+        pin_memory=torch.cuda.is_available()
     )
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    built_model = model.buildModel(args.backbone)
+    built_model = model.buildModel(args.backbone, num_classes=args.num_classes + 1)
 
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     train_model(built_model, train_loader, val_loader, device)
 
 if __name__ == '__main__':
     main()
+
+exit()
