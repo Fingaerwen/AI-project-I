@@ -16,10 +16,14 @@ def collect(batch):
 def main():
     args = get_args()
     print(args)
-    
-    csv_dir = '.'
-    df_train = pd.read_csv(os.path.join(csv_dir, 'Data/train.csv'))
-    df_val = pd.read_csv(os.path.join(csv_dir, 'Data/val.csv'))
+
+    project_root = os.path.dirname(os.path.abspath(__file__))
+    csv_dir = args.csv_dir
+    if not os.path.isabs(csv_dir):
+        csv_dir = os.path.join(project_root, csv_dir)
+
+    df_train = pd.read_csv(os.path.join(csv_dir, 'train.csv'))
+    df_val = pd.read_csv(os.path.join(csv_dir, 'val.csv'))
     
     train_dataset = ObjDetectionDataset(df_train, transform=build_train_transforms(args.image_size))
     val_dataset = ObjDetectionDataset(df_val, transform=build_val_transforms(args.image_size))
