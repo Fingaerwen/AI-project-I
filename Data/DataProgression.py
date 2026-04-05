@@ -1,18 +1,10 @@
 import os
-import zipfile
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
 BASE_DIR = os.path.dirname(__file__)
 IMAGE_DIR = os.path.join(BASE_DIR, "Images")
-LABEL_ZIP_PATH = os.path.join(BASE_DIR, "Labels", "Moose YOLO.zip")
-LABEL_EXTRACT_DIR = os.path.join(BASE_DIR, "Labels", "yolo_labels")
-YOLO_LABEL_DIR = os.path.join(LABEL_EXTRACT_DIR, "obj_Train_data", "Training")
-
-if not os.path.exists(LABEL_EXTRACT_DIR):
-    os.makedirs(LABEL_EXTRACT_DIR, exist_ok=True)
-    with zipfile.ZipFile(LABEL_ZIP_PATH, "r") as zip_ref:
-        zip_ref.extractall(LABEL_EXTRACT_DIR)
+YOLO_LABEL_DIR = os.path.join(BASE_DIR, "Labels", "yolo_labels", "obj_Train_data", "Training")
 
 rows = []
 
