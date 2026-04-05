@@ -6,6 +6,7 @@ from dataset import ObjDetectionDataset
 from torch.utils.data import DataLoader
 import model
 from trainer import train_model
+from augmentations import build_train_transforms, build_val_transforms
 
 
 def collect(batch):
@@ -20,8 +21,8 @@ def main():
     df_train = pd.read_csv(os.path.join(csv_dir, 'Data/train.csv'))
     df_val = pd.read_csv(os.path.join(csv_dir, 'Data/val.csv'))
     
-    train_dataset = ObjDetectionDataset(df_train)
-    val_dataset = ObjDetectionDataset(df_val)
+    train_dataset = ObjDetectionDataset(df_train, transform=build_train_transforms(args.image_size))
+    val_dataset = ObjDetectionDataset(df_val, transform=build_val_transforms(args.image_size))
 
     train_loader = DataLoader(
         train_dataset,

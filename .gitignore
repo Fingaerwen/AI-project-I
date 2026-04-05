@@ -1,0 +1,12 @@
+# Data
+Images/
+yolo_labels/
+Data/
+
+# Model outputs
+sessions/
+*.pth
+
+# Python cache
+__pycache__/
+*.pyc
